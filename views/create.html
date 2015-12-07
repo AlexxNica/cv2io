@@ -1,0 +1,114 @@
+{{define "title"}}CV 2.0 - Global Resume{{end}}
+{{define "heading"}}Create a CV 2.0{{end}}
+{{define "body"}}
+<section>
+<article>Fill out the form with the data you want in your CV and press the Create button below. Several output files will be available for you to download. After <strong>20 minutes</strong>, they will be deleted.</article>
+</section>
+
+<section>
+<form action="/createCV/" method="post" enctype="multipart/form-data">
+<nav id="formtopnav"><a class="noarrow" href="#personal">Personal</a>
+<a class="noarrow" href="#professional">Professional</a>
+<a class="noarrow" href="#education">Education</a>
+<a class="noarrow" href="#skills">Skills</a>
+<a class="noarrow" href="#interests">Interests</a>
+<a class="noarrow" href="#customized">Custom</a></nav>
+<fieldset id="personal">
+  <legend>Personal</legend>
+  <label for="FullName">Full Name</label>
+  <input id="FullName" name="FullName" type="text" title="full name" placeholder="Full Name"><br>
+  <label for="FaoName">Be addressed as</label>
+  <input id="FaoName" name="FaoName" type="text" title="how you want to be addressed" placeholder="Mr Smith/John"><br>
+  <label for="Birthday">Birth</label>
+  <input id="Birthday" name="Birthday" placeholder="Birthday" type="date"><br>
+  <label for="Email">E-Mail</label>
+  <input id="Email" name="Email" type="email" placeholder="your@email.com"><br>
+  <label for="Address">Address</label>
+  <input id="Address" name="Address" type="address" title="address as you want to have it written on your CV" placeholder="Full Address"><br>
+  <label for="Phone">Phone</label>
+  <input id="Phone" name="Phone" type="text" title="phone number as you want to have it written on your CV" placeholder="Full Address"><br>
+  <label for="Picture">Your Picture</label>
+  <input id="Picture" name="Picture" type="file"><br>
+  <label for="PersonalText">Additional Information</label>
+  <textarea id="PersonalText" name="PersonalText" placeholder="Keep it short!" rows="2" cols="50"></textarea>
+</fieldset>
+
+<fieldset id="professional">
+  <legend>Professional Experience</legend>
+  <div id="addjobs">
+  <label for="DateStartJob">From</label>
+  <input id="DateStartJob" name="DateStartJob" type="date"><br>
+  <label for="DateEndJob">To</label>
+  <input id="DateEndJob" name="DateEndJob" type="date"><br>
+  <label for="Employer">Employer</label>
+  <input id="Employer" name="Employer" type="text" placeholder="Employer"><br>
+  <label for="Role">Role</label>
+  <input id="Role" name="Role" type="text" placeholder="Job Title"><br>
+  <label for="LogoWork">Logo</label>
+  <input id="LogoWork" name="LogoWork" type="file"><br>
+  <legend>Additional Text</legend>
+  <textarea id="DescriptionJob" name="DescriptionJob" placeholder="Have you achieved anything special in this job or would you like to add some additional information here?" rows="3" cols="100"></textarea><br>
+  </div>
+  <button name="addmorejobs" type="button" onclick="add('addjobs')">Add more&hellip;</button>
+</fieldset>
+
+<fieldset id="education">
+  <legend>Education</legend>
+  <div id="addedu">
+  <label for="DateStartEdu">From</label>
+  <input id="DateStartEdu" name="DateStartEdu" type="date" placeholder="start date"><br>
+  <label for="DateEndEdu">To</label>
+  <input id="DateEndEdu" name="DateEndEdu" type="date" placeholder="(expected) end date"><br>
+  <label for="School">School</label>
+  <input id="School" name="School" type="text" title="school/institute you visited" placeholder="School/Institution"><br>
+  <label for="Subject">Subject</label>
+  <input id="Subject" name="Subject" type="text" title="what you studied" placeholder="Field of Study"><br>
+  <label for="Degree">Degree</label>
+  <input id="Degree" name="Degree" type="text" title="degree earned (if applicable)" placeholder="Degree/Certificate"><br>
+  <label for="LogoEdu">Logo</label>
+  <input id="LogoEdu" name="LogoEdu" type="file"><br>
+  <textarea id="DescriptionEdu" name="DescriptionEdu" placeholder="specializations, additional information/achievements, etc." rows="3" cols="100"></textarea><br>
+  </div>
+  <button name="addmoreedu" type="button" onclick="add('addedu')">Add more&hellip;</button>
+</fieldset>
+
+<fieldset id="skills">
+<legend>Skills</legend>
+
+<h4>Languages</h4>
+<div id="addlanguages">
+<input id="language" name="language" type="text"><input type="range" min="1" max="5" value="3" step="1" title="choose your skill level from basic to native language skills" placeholder="Language"><br>
+</div>
+<button name="addmorelanguages" type="button" onclick="add('addlanguages')">Add more&hellip;</button>
+
+<h4>Technical</h4>
+<div id="addtech">
+<input id="technical" name="technical" type="text"><input type="range" min="0" max="100" value="50" title="choose your skill level from 0 to 100" placeholder="Technical Skill"><br>
+</div>
+<button name="addmoreskillstechnical" type="button" onclick="add('addtech')">Add more&hellip;</button>
+
+<h4>General</h4>
+<div id="addgeneral">
+<input id="general" name="general" type="text"><input type="range" min="0" max="100" value="50" title="choose your skill level from 0 to 100"><br>
+</div>
+<button name="addmoreskillsgeneral" type="button" onclick="add('addgeneral')">Add more&hellip;</button>
+</fieldset>
+
+<fieldset id="interests">
+  <legend>Interests</legend>
+  <input id="interest" name="interest" type="text" title="room for your hobbies" placeholder="special interest or hobby"><br>
+  <input id="interest2" name="interest2" type="text" title="room for your hobbies" placeholder="special interest or hobby"><br>
+  <div id="addinterests">
+  <input id="interest3" name="interest3" type="text" title="room for your hobbies" placeholder="special interest or hobby"><br>
+  </div>
+  <button name="addmoreinterests" type="button" onclick="add('addinterests')">Add more&hellip;</button>
+</fieldset>
+
+<fieldset id="customized">
+  <legend>Customized Information</legend>
+  Add input elements and stuff for custom tags here.
+</fieldset><br>
+<button id="butcreate" type="submit">Create &gt;&gt;</button>
+</form>
+</section>
+{{end}}

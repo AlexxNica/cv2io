@@ -1,0 +1,14 @@
+{{define "title"}}CV 2.0 created{{end}}
+{{define "heading"}}CV 2.0 created{{end}}
+{{define "body"}}
+<section>
+<h2>Congratulations - You have created your CV 2.0!</h2>
+You created your CV 2.0.
+Download your files here:
+<ul>
+<li><a href="/output/{{.Title}}.cv2">{{.Title}}.cv2</a>
+<li><a href="/output/{{.Title}}.html">{{.Title}}.html</a>
+<li><a href="/output/{{.Title}}.svg">{{.Title}}.svg</a>
+</ul>
+</section>
+{{end}}

@@ -1,0 +1,75 @@
+{{define "tmplHTML"}}
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{.FullName}} - CV 2.0</title>
+<meta charset="UTF-8">
+<meta name="description" content="{{.FullName}} - CV 2.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body {margin: 3% 10% 0 10%; font-family: 'Noto Sans', sans-serif;}
+h1 {font-size: 220%; font-weight: bold; letter-spacing: 0.1em; padding: 0.2em; text-align: center;}
+h2 {font-size: 160%; font-weight: bold; color: #009b57; letter-spacing: 0.1em; font-variant: small-caps; border-left: 15px solid #006699; padding-left: 3px;}
+h3 {font-size: 130%; font-weight: bold; color: #009b57; border-top: 1px solid #166cec;}
+h3:first-letter {font-size: 150%; font-weight: lighter; color: #006699}
+h4 {font-size: 80%;}
+small {font-size: 90%; color: #444;}
+a {text-decoration: none; color: #166cec;}
+a:before {content:"\027A0";}
+a:hover {text-decoration: none;}
+a:hover:before {content:"\2713";}
+.cvpic {right: 10%; background: transparent url({{.PictureLocation}}) top left; border: none; width: 150px; height: 150px;}
+.right {float: right;}
+@media screen and (min-width: 1200px){body {margin: 3% 28% 0 28%}}
+</style>
+</head>
+
+<body>
+<h1>{{.FullName}}</h1>
+<p style="text-align: right; float: right;"><small><em>Contact</em>: {{.Telephone}}, {{.Email}}<br>
+<em>Address:</em> {{.Address}}</small></p>
+
+<h2>Professional Experience</h2>
+{{range .Jobs}}
+<h3><img class="right" src="{{.LogoLocation}}" width="80px">{{.Employer}}</h3>
+<small>{{.DateStart}} - {{.DateEnd}}</small>
+- {{.Role}}<br>
+<small>{{.Description}}</small>
+{{end}}
+
+<h2>Education</h2>
+{{range .Edu}}
+<ul>
+   <li>{{.DateStart}} - {{.DateEnd}}: {{.Degree}} - {{.School}}
+</ul>
+{{end}}
+
+<h2>Skills</h2>
+<h3>Languages</h3>
+{{range .Languages}}
+<ul>
+   <li>{{.Name}}: {{.Level}}
+</ul>
+{{end}}
+<h3>General</h3>
+<ul>
+{{range .Skills}}
+   <li>{{.Name}}
+{{end}}
+</ul>
+
+<br>
+<h3>Technical</h3>
+<ul>
+   <li>Technical Skills here
+</ul>
+
+<h3>Personal</h3>
+<p>{{.PersonalText}}</p>
+</body>
+</html>
+{{end}}

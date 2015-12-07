@@ -1,0 +1,37 @@
+{{define "structure"}}
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="{{template `title`}}" />
+<meta name="viewport" content="width=device-width, user-scalable=yes" />
+<title>{{template "title"}}</title>
+<link href='https://fonts.googleapis.com/css?family=NTR' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="public/cv2me.css">
+<script src="public/cv2me.js"></script>
+</head>
+<body>
+<nav id="topnav">
+  <a class="left" href="/"><img src="/public/cv2melogo.png" height=30px alt="cv2.me landing page link"></a>
+  <a href="/create">Create</a>
+  <a href="/cv2-standard">CV 2.0</a>
+  <a href="/login">Login</a>
+</nav>
+<header><h1>{{template "heading"}}</h1></header>
+{{template "body" .}}
+<footer>
+  <nav><img class="left" src="/public/cv2melogo.png">
+  <ul>
+    <li><a href="https://github.com/cv2me/cv2me">GitHub</a>
+    <li><a href="https://www.w3.org/community/cv2/">W3C Community Group</a>
+    <li><a href="/documentation">Documentation</a>
+    <li><a href="/about">About</a>
+    <li><a href="/contact">Contact</a>
+  </ul>
+  <small>created with</small> <span style="color: #ff33cc; font-size: 130%; letter-spacing: 1px;">&#9829;</span> <small>using<br>Open Source Software</small>
+  </nav>
+</footer>
+</body>
+</html>
+{{end}}

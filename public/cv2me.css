@@ -1,0 +1,91 @@
+/* CSS reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+ul, ol {list-style: none;}
+html{background: url(bckgd.png) repeat top left;}
+body {line-height: 1.5; font-family: "Roboto", Verdana, sans-serif; font-size: 1.3em;}
+
+/* layout */
+header {padding: 5px;}
+nav#topnav {font-family: "NTR"; font-size: 1.2em; margin: 0; width: 100%; background: #060633; text-align: right;}
+section {background: #ffffff; padding: 20px; width: 50%; margin: 20px auto 20px auto;}
+footer {bottom: 0px; background: #060633; color: #fff5e6; padding: 0.5em; clear: both;}
+
+/* style elements */
+h1 {font-family: "NTR"; font-size: 320%; font-weight: bold; padding: 15px; text-align: center; color: #060633;}
+h2 {font-family: "NTR"; font-weight: bold; letter-spacing: 1px; font-size: 130%; color: #060633; margin: 0.5em 0 0 0;}
+h2:first-letter {font-size: 160%; color: #060633;}
+h3 {font-family: "NTR"; font-size: 160%; font-weight: bold; letter-spacing: 0.1em; font-variant: small-caps; color: #060633;}
+h4 {font-weight: bold; letter-spacing: 1px; color: #060633; margin: 5px 0 2px 5px;}
+
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: '';}
+table {border-collapse: collapse; border-spacing: 0;}
+
+small {font-size: 80%;}
+i, em {font-style: oblique;}
+b, strong {font-weight: bold; font-size: 95%;}
+code, pre {font-family: "Roboto Mono", monospace;}
+img {padding: 20px;}
+
+article ul {list-style: disc inside;}
+
+.right {float: right;}
+.left {float: left;}
+.justified {text-align: justify;}
+.centered {text-align: center;}
+.cleared {clear: both;}
+
+section a {text-decoration: none; color: #060633; font-weight: bold; background: #fff5e6;}
+section a:before {content:"\027A0"; padding-right: 2px; margin-right: 4px;}
+section a:visited {}
+section a:hover {background: #a0e0a9;}
+section a:hover:before {color: #fff5e6; background: #060633;}
+
+a.noarrow {background: transparent}
+a.noarrow:hover {background: transparent}
+a.noarrow:before {content: ""; padding: 0; margin: 0;}
+a.noarrow:hover:before {content: "";}
+
+nav#topnav a {text-decoration: none; font-weight: bold; color: #fff5e6; font-size: 1em; padding: 10px 2em 0 2em; display: inline-block; letter-spacing: 2px; font-variant: small-caps;}
+nav#topnav a:hover {color: #a0e0a9;}
+nav#topnav a img {padding: 0 0 0 0;}
+footer nav {width: 35%; margin: 20px auto 35px auto;}
+footer nav a {text-decoration: none; color: #fff5e6;}
+footer nav a:before {content:"\027A0"; padding-right: 2px; margin-right: 4px;}
+footer nav a:hover {color: #a0e0a9;}
+footer nav a:hover:before {color: #a0e0a9;}
+
+nav#formtopvnav {}
+nav#formtopnav a {display: inline-block; background: #fff5e6; padding: 5px; width: 15%; text-align: center;}
+nav#formtopnav a:hover {background: #a0e0a9;}
+
+/* form elements */
+fieldset {border: 1px solid #a0e0a9; padding: 10px; border-radius: 10px;}
+legend {font-family: "NTR"; color: #060633; font-size: 1.3em; font-weight: bold; padding: 0 5px 0 5px;}
+label {display: inline-block; padding: 5px; margin: 3px; vertical-align: middle; font-size: 0.9em;}
+input {padding: 5px 3px 5px 3px; margin: 3px;}
+input[type=text] {}
+input[type=radio] {}
+input[type=range] {}
+
+textarea {background: #fff5e6; border: none; -moz-border-radius: 3px; -webkit-border-radius: 3px; -khtml-border-radius: 3px; border-radius: 3px; outline: none; padding: 5px; width: 95%;}
+textarea:focus {background: #c3f3cb;}
+
+button {background: #060633; border: none; border-radius: 20px; color: #fff5e6; display: block; margin: 10px auto 10px auto; padding: 5px 12px; font-size: 1em;}
+button:hover {cursor: pointer; color: #a0e0a9;}
+button#butcreate {font-size: 1.5em; color: #fff5e6; padding: 8px 25px; font-weight: bold; letter-spacing: 2px;}
+button#butcreate:hover {color: #a0e0a9;}
+
+/* responsiveness */
+@media screen and (min-width: 1280px){
+
+}
+
+@media screen and (min-width: 780px) and (max-width: 1280px){
+
+}
+
+@media screen and (max-width: 780px){
+
+}

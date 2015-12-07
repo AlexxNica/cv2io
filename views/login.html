@@ -1,0 +1,23 @@
+{{define "title"}}CV 2.0 - Global Resume{{end}}
+{{define "heading"}}cv2.me - Login{{end}}
+{{define "body"}}
+<section>
+<article>You can use this service to keep your data, change output files, and share your resume or templates. We do not share your information with third-party services and you can delete your account anytime. Inactive accounts will be deleted twelve months after the last login.</article>
+</section>
+
+<section>
+<form action="/createaccount/" method="post" enctype="multipart/form-data">
+<fieldset>
+<legend>Sign Up</legend>
+<label for="username">Username</label>
+<input id="username" name="username" type="text" title="desired username" placeholder="Itsy-Bitsy-Spider"><br>
+<label for="email">E-Mail</label>
+<input id="email" name="email" type="email" placeholder="your@email.com"><br>
+<label for="password">Password</label>
+<input id="password" name="password" type="password" title="desired password" placeholder="Password"><br>
+</fieldset>
+
+<button id="butcreate" type="submit">Sign Up &gt;&gt;</button>
+</form>
+</section>
+{{end}}

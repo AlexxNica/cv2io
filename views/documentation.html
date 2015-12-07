@@ -1,0 +1,47 @@
+{{define "title"}}CV 2.0 - Global Resume{{end}}
+{{define "heading"}}Documentation{{end}}
+{{define "body"}}
+<section>
+For the most current source files, please go to <a href="https://github.com/cv2me/cv2me">GitHub</a>.
+
+<h2>Frontend</h2>
+HTML5, CSS3
+
+<h2>Backend</h2>
+Go 1.4.1 or higher
+
+<h2>Design Process</h2>
+<p>The idea and design for the project appeared while creating a seminar paper on visualizing resumes. There have been several iterations of the design for frontend, backend, and functionality of the system. The client-side design will be improved and the back-end wil change completely throughout the next few months as the <em>Global Resume Standard</em> is developed and brought to life.</p>
+
+<a class="noarrow" href="/public/overview.jpg"><img src="/public/overview.jpg" width="90%"></a>
+
+<h2>Launching the Application</h2>
+<p>So far, you can launch the application by typing the following lines into your console (relative starting point is the root directory of the server):</p>
+<br><code>
+# cd src<br>
+# go run cv2.go main.go osops.go
+</code><br><br>
+<p>In your browser, go to <code>localhost:8080</code>.</p>
+
+<h2>Features</h2>
+<p>Currently, the program features a form where users can submit their data which is then copied into .cv2, .html, .svg files that they can download. The functionality is not yet completed neither do some things work - come back beginning of 2016. This version is solely for developers.</p>
+
+<h2>ToDo</h2>
+This ToDo list ist for advanced features that are not mentioned in the README.md.
+<ul>
+<li>create the specification
+<li>make more templates for visualizations
+<li>authentication so users can login and manage their resumes and job offers
+<li>customizable visualizations for .cv2 files so every recruiter can have their own preferred style of viewing applicants
+<li>shareable links to saved resumes, public and private
+<li>choose more themes
+<li>upload your old CV and get an automatically generated CV2
+<li>design your CV2 online via drag-and-drop
+<li>offer jobs and profiles
+<li>offer additional functionality like summary graph of all applicants applying for a job to both applicants and recruiters
+<li>RemoveAll for removeCV2 in case of someone using several templates, change saving to directory
+<li>drag and drop data
+</ul>
+
+</section>
+{{end}}
