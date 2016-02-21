@@ -10,6 +10,18 @@ type DataPassed struct {
   Title string
 }
 
+type MultipleDomains map[string]http.Handler
+
+func (md MultipleDomains) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+  handler := md[r.Host]
+
+  if handler != nil {
+    handler.ServeHTTP(w, r)
+  } else {
+    http.Redirect(w, r, "/", http.StatusFound)
+  }
+}
+
 //templateHandler assigns each URL to the corresponding template structure.
 func templateHandler(w http.ResponseWriter, r *http.Request) {
 	data := new(DataPassed)
@@ -44,9 +56,18 @@ func templateHandler(w http.ResponseWriter, r *http.Request) {
 
 //main starts the web server and routes URLS.
 func main() {
-  http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("../public"))))
-	http.Handle("/output/", http.StripPrefix("/output/", http.FileServer(http.Dir("../output"))))
-	http.HandleFunc("/createCV/", createCVHandler)
-  http.HandleFunc("/", templateHandler)
-	http.ListenAndServe("localhost:8080", nil)
+  muxcv := http.NewServeMux()
+  muxtk := http.NewServeMux()
+
+  md := make(MultipleDomains)
+  md["localhost:8080"] = muxcv
+  md["localhost:2015"] = muxtk
+
+  muxcv.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("../public"))))
+	muxcv.Handle("/output/", http.StripPrefix("/output/", http.FileServer(http.Dir("../output"))))
+	muxcv.HandleFunc("/createCV/", createCVHandler)
+  muxcv.HandleFunc("/", templateHandler)
+
+
+	http.ListenAndServe(":8080", md)
 }

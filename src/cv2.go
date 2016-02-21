@@ -68,7 +68,7 @@ func createCVHandler(w http.ResponseWriter, r *http.Request) {
 	var keys, values = "", ""
 	for key, value := range r.Form {
 		if strings.Contains(string(key), "School") {
-			//cv2.Edu[0].School = string(key)
+			
 		}
 		for index, _ := range value {
 			values += value[index]
