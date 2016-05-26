@@ -8,13 +8,13 @@ import (
 	"time"
 )
 
-//createCV2 creates the .cv2 file with data provided in the *CV2 struct.
+//creates the .cv2 file with data provided in the *CV2 struct.
 func (cv2 *CV2) createCV2() error {
 	filename := "../output/" + cv2.Title + ".cv2"
 	return ioutil.WriteFile(filename, cv2.Body, 0666)
 }
 
-//removeCV2 removes created output files after 20 minutes.
+//removes created output files after 20 minutes.
 func (cv2 *CV2) removeCV2() []error {
 	// ATTENTION: change back to time.Minute * 20 when going live
 	timer := time.NewTimer(time.Second * 50)
@@ -23,7 +23,7 @@ func (cv2 *CV2) removeCV2() []error {
 	return err
 }
 
-//Copy copies files from src to dst.
+//copies files from src to dst.
 func Copy(dst, src string) error {
 	in, err := os.Open(src)
 	if err != nil {return err}
@@ -39,7 +39,7 @@ func Copy(dst, src string) error {
 	return cerr
 }
 
-//createTimestamp creates a timestamp taking the current time for unique file naming.
+//creates a timestamp taking the current time for unique file naming.
 func createTimestamp() string {
 	yy := strconv.Itoa(time.Now().Year())
 	mm := strconv.Itoa(int((time.Now().Month())))
