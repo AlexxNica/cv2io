@@ -94,7 +94,7 @@
          id="tspan3009"
          x="187.88838"
          y="346.26553"
-         style="font-size:20px">Personal Text</tspan><tspan
+         style="font-size:20px">{{.PersonalText}}</tspan><tspan
          sodipodi:role="line"
          x="187.88838"
          y="371.26553"
