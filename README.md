@@ -1,5 +1,5 @@
-# cv2me
-cv2me is a service that is currently heavily under development. It will implement the CV 2.0 specification created by the CV 2.0 - Global Resume Community Group. Its core features are available under the MIT license. If you want to know more, contact Sanja Bonic via Hangouts or e-mail.
+# cv2io
+cv2io is a service that is currently heavily under development. It will implement the CV 2.0 specification created by the CV 2.0 - Global Resume Community Group. Its core features are available under the MIT license. If you want to know more, contact Sanja Bonic via [e-mail](mailto:thoughtkettle@gmail.com).
 
 front-end: HTML5, CSS, JavaScript
 
@@ -21,7 +21,7 @@ localhost:8080
 For more details, see http://localhost:8080/about and http://localhost:8080/documentation on localhost or http://cv2.me.
 
 ## How To Contribute
-Please use **pull requests** if you want to contribute to this code and, if you can help it, **don't wrap your code** after a certain character limit. Just write the full line and preferably use an editor that uses automatic word wrap. Below you'll find some To Dos - contact me via Hangouts if you want to contribute more, don't know where to start, or have suggestions to improve the existing code.
+Please use **pull requests** if you want to contribute to this code and, if you can help it, **don't wrap your code** after a certain character limit. Just write the full line and preferably use an editor that uses automatic word wrap. Below you'll find some To Dos - contact me if you want to contribute more, don't know where to start, or have suggestions to improve the existing code.
 
 If you want to contribute to this code, you have to be a member of the W3C Community Group: https://www.w3.org/community/cv2/
 

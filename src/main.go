@@ -3,7 +3,7 @@ package main
 import (
   "bytes"
   "html/template"
-  "io"
+  "io/ioutil"
   "net/http"
 	"os"
 	"strings"
@@ -82,11 +82,11 @@ func (md MultipleDomains) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func templateHandler(w http.ResponseWriter, r *http.Request) {
 	data := new(DataPassed)
   layout := "../structure.html"
-	content := "../views/" + r.URL.Path + ".html"
-	if r.URL.Path == "/" {content = "../views/index.html"}
+	content := "../pages/" + r.URL.Path + ".html"
+	if r.URL.Path == "/" {content = "../pages/index.html"}
 	if len(r.URL.Path) > 12 && r.URL.Path[1:12] == "cv_created_" {
     data.Title = r.URL.Path[12:]
-    content = "../views/cv_created.html"
+    content = "../pages/cv_created.html"
 	}
 
 	info, err := os.Stat(content)
@@ -134,15 +134,18 @@ func createCVHandler(w http.ResponseWriter, r *http.Request) {
 	cv2.Body = []byte(keys)
 
 	// file handling
-	file, header, err := r.FormFile("LogoJob")
+	file, header, err := r.FormFile("LogoWork")
 	if err != nil {
 		// no logo uploaded
 	} else {
+    content, err := ioutil.ReadAll(file)
+    if err != nil {
+      // file contents broken
+    }
+    err = ioutil.WriteFile("../output/"+ cv2.FullName + "_" + createTimestamp() + header.Filename, content, 0777)
 		defer file.Close()
-		out, _ := os.Create("../output/" + header.Filename)
-		defer out.Close()
-		//cv2.Jobs[0].PictureLocation = "../output/" + header.Filename
-		_, err = io.Copy(out, file)
+    // TODO: add error handling for length of filenames and duplicates
+    // TODO: replace ReadAll with Open and Copy for better performance?
 	}
 
 	// .cv2 file creation
@@ -214,11 +217,11 @@ func createSVG(cv2 *CV2, tmplName string) bool {
 //main starts the web server and routes URLS.
 func main() {
   muxcv := http.NewServeMux()
-  muxtk := http.NewServeMux()
+  //muxtk := http.NewServeMux()
 
   md := make(MultipleDomains)
   md["localhost:8080"] = muxcv
-  md["localhost:2015"] = muxtk
+  //md["localhost:8080"] = muxtk
 
   muxcv.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("../public"))))
 	muxcv.Handle("/output/", http.StripPrefix("/output/", http.FileServer(http.Dir("../output"))))

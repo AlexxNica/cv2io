@@ -21,6 +21,7 @@ func (cv2 *CV2) removeCV2() []error {
   <- timer.C
 	err := []error{os.Remove("../output/"+cv2.Title+".cv2"), os.Remove("../output/"+cv2.Title+".html"), os.Remove("../output/"+cv2.Title+".svg"),}
 	return err
+  // TODO: delete user-uploaded files for logos and other pics
 }
 
 //copies files from src to dst.
